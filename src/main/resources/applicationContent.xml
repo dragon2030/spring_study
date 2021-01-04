@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+        "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+<!--    xmlns="http://www.springframework.org/schema/beans"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:tool="http://www.springframework.org/schema/tool"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xsi:schemaLocation="
+    http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/mvc
+    http://www.springframework.org/schema/mvc/spring-mvc.xsd
+    http://www.springframework.org/schema/tx
+    http://www.springframework.org/schema/tx/spring-tx.xsd
+    http://www.springframework.org/schema/tool
+    http://www.springframework.org/schema/tool/spring-tool.xsd
+    http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop-4.0.xsd"-->
+
+
+    <!-- spring对bean实例化 -->
+    <bean id="test" class="com.bigDragon.model.Test"></bean>
+    <!-- spring 依赖注入 setter注入方式-->
+    <bean id="user1" class="com.bigDragon.model.User1">
+        <property name="name">
+            <value>小强</value>
+        </property>
+        <property name="age">
+            <value>26</value>
+        </property>
+        <property name="sex">
+            <value>男</value>
+        </property>
+    </bean>
+    <!-- spring 依赖注入 构造器注入方式-->
+    <bean name="user2" class="com.bigDragon.model.User2">
+        <constructor-arg index="0" type="java.lang.String">
+            <value>小张</value>
+        </constructor-arg>
+        <constructor-arg index="1" type="java.lang.Integer">
+            <value>23</value>
+        </constructor-arg>
+        <constructor-arg index="2" type="java.lang.String">
+            <value>女</value>
+        </constructor-arg>
+    </bean>
+    <!-- spring 引用其他类2-->
+    <bean name="user3" class="com.bigDragon.model.User3">
+        <property name="user1" ref="user1">
+        </property>
+    </bean>
+
+    <!-- controller -->
+<!--   <bean name="/AbstractControllerTest" class="com.bigDragon.controller.springMVC.AbstractControllerTest">
+        <property name="user1" ref="user1">
+        </property>
+    </bean>-->
+    <!--按bean名称装配-->
+    <bean autowire="byName" id="printInfo" class="com.bigDragon.model.PrintInfo"/>
+    <!--按bean类型装配-->
+    <bean autowire="byType" id="printInfo2" class="com.bigDragon.model.PrintInfo2"/>
+    <!-- 添加扫描-->
+<!--    <context:component-scan base-package="com.bigDragon.*" ></context:component-scan>
+    &lt;!&ndash;  测试多例模式 &ndash;&gt;
+    <bean id="user5" class="com.bigDragon.model.User5" scope="prototype">
+        <property name="name">
+            <value>小强</value>
+        </property>
+        <property name="age">
+            <value>26</value>
+        </property>
+        <property name="sex">
+            <value>男</value>
+        </property>
+    </bean>-->
+</beans>

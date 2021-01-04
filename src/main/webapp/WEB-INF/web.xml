@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
+    <context-param>
+        <param-name>url</param-name>
+        <param-value>jdbc:mysql://localhost:3306/dragon</param-value>
+    </context-param>
+
+    <!-- 设置自动加载的配置文件 -->
+    <servlet>
+        <servlet-name>dispatcherServlet</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <!--classpath:只会到你class路径中查找文件 classpath*：不仅包含class路径，还包括jar文件中（class路径）进行查找-->
+            <param-value>classpath:applicationContent.xml</param-value>
+        </init-param>
+        <!--load-on-startup元素标记容器是否在启动的时候就加载这个servlet(实例化并调用其init()方法)。这时servlet不用初始化，而是交给容器去处理。-->
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>dispatcherServlet</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+    <!--Servlet样例-->
+<!--    <servlet>
+        <servlet-name>ServletDemo</servlet-name>
+        <servlet-class>com.bigDragon.controller.servletTest.ServletDemo</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletDemo</servlet-name>
+        <url-pattern>/servlet/ServletDemo</url-pattern>
+    </servlet-mapping>-->
+
+    <!--Servlet接口测试样例-->
+<!--    <servlet>
+        <servlet-name>ServletInterface</servlet-name>
+        <servlet-class>com.bigDragon.controller.servletTest.ServletInterface</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletInterface</servlet-name>
+        <url-pattern>/servlet/ServletInterface</url-pattern>
+    </servlet-mapping>-->
+
+    <!-- ServletConfig接口测试样例 -->
+<!--    <servlet>
+        <servlet-name>ServletConfigInterface</servlet-name>
+        <servlet-class>com.bigDragon.controller.servletTest.ServletConfigInterface</servlet-class>
+        &lt;!&ndash;配置ServletInterface的初始化参数&ndash;&gt;
+        <init-param>
+            <param-name>name</param-name>
+            <param-value>Jack</param-value>
+        </init-param>
+        <init-param>
+            <param-name>password</param-name>
+            <param-value>123</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletConfigInterface</servlet-name>
+        <url-pattern>/servlet/ServletConfigInterface</url-pattern>
+    </servlet-mapping>-->
+
+    <!-- ServletContext -->
+<!--    <servlet>
+        <servlet-name>ServletContextTest</servlet-name>
+        <servlet-class>com.bigDragon.controller.servletTest.ServletContextTest</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletContextTest</servlet-name>
+        <url-pattern>/servlet/ServletContextTest</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ServletContextTest2</servlet-name>
+        <servlet-class>com.bigDragon.controller.servletTest.ServletContextTest2</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletContextTest2</servlet-name>
+        <url-pattern>/servlet/ServletContextTest2</url-pattern>
+    </servlet-mapping>-->
+
+    <!-- HttpServletRequest HttpServletResponse -->
+<!--    <servlet>
+        <servlet-name>HttpServletRequestTest</servlet-name>
+        <servlet-class>com.bigDragon.controller.servletTest.HttpServletRequestTest</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HttpServletRequestTest</servlet-name>
+        <url-pattern>/servlet/HttpServletRequestTest</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>HttpServletResponseTest</servlet-name>
+        <servlet-class>com.bigDragon.controller.servletTest.HttpServletResponseTest</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HttpServletResponseTest</servlet-name>
+        <url-pattern>/servlet/HttpServletResponseTest</url-pattern>
+    </servlet-mapping>-->
+
+    <!-- Servlet过滤器 -->
+    <!-- Servlet过滤器样例 -->
+   <!-- <filter>
+        <filter-name>FilterDemo</filter-name>
+        <filter-class>com.bigDragon.controller.servletTest.filterTest.FilterDemo</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>FilterDemo</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>-->
+    <!-- Servlet字符编码过滤器 -->
+    <!--<filter>
+        <filter-name>CharactorFilter</filter-name>
+        <filter-class>com.bigDragon.controller.servletTest.filterTest.CharactorFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>CharactorFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>-->
+    <!--配置监听器-->
+    <!--监听Context对象的创建及销毁-->
+<!--    <listener>
+        <listener-class>com.bigDragon.controller.servletTest.listenerTest.ServletContextListenerTest</listener-class>
+    </listener>-->
+    <!--监听Session对象的创建及销毁-->
+<!--    <listener>
+        <listener-class>com.bigDragon.controller.servletTest.listenerTest.HttpSessionListenerTest</listener-class>
+    </listener>-->
+    <!--监听Request对象的创建及销毁-->
+<!--    <listener>
+        <listener-class>com.bigDragon.controller.servletTest.listenerTest.ServletRequestListenerTest</listener-class>
+    </listener>-->
+    <!--监听ServletContext对象属性的变化-->
+<!--    <listener>
+        <listener-class>com.bigDragon.controller.servletTest.listenerTest.ServletContextAttributeListenerTest</listener-class>
+    </listener>-->
+    <!--监听Session对象属性的变化-->
+<!--    <listener>
+        <listener-class>com.bigDragon.controller.servletTest.listenerTest.HttpSessionAttributeListenerTest</listener-class>
+    </listener>-->
+    <!--监听ServletRequest对象属性的变化-->
+<!--    <listener>
+        <listener-class>com.bigDragon.controller.servletTest.listenerTest.ServletRequestAttributeListenerTest</listener-class>
+    </listener>-->
+
+    <!--Servlet监听器测试验证类-->
+    <servlet>
+        <servlet-name>ListenerTest</servlet-name>
+        <servlet-class>com.bigDragon.controller.servletTest.listenerTest.ListenerTest</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ListenerTest</servlet-name>
+        <url-pattern>/servlet/ListenerTest</url-pattern>
+    </servlet-mapping>
+</web-app>
