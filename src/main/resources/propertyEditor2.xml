@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+    <bean id="PropertyEditorConfigurer1"
+          class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+        <property name="customEditors">
+            <map>
+                <!-- 引用类的属性类型,本例子中对应 com.test.Person 类的 education 属性 东北大亨对应读取的学校属性 -->
+<!--                <entry key="com.bigDragon.springIOC.propertyEdtor2.Education">
+                    &lt;!&ndash;对应Address的编辑器 &ndash;&gt;
+                    <bean class="com.bigDragon.springIOC.propertyEdtor2.EducationPropertyEditor" />
+                </entry>-->
+                <entry key="com.bigDragon.springIOC.propertyEdtor2.Education"
+                       value ="com.bigDragon.springIOC.propertyEdtor2.EducationPropertyEditor"  />
+            </map>
+        </property>
+    </bean>
+    <bean id="PropertyEditorConfigurer2"
+          class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+        <property name="customEditors">
+            <map>
+                <!-- 引用类的属性类型,本例子中对应 com.test.Person 类的 dataValue属性 -->
+<!--                <entry key="java.util.Date">
+                    &lt;!&ndash;对应dataValue 属性的编辑器 &ndash;&gt;
+                    <bean class="com.bigDragon.springIOC.propertyEdtor2.PropertyDateEditor" >
+                        <property name="dataPattern" value="yyyy/MM/dd"/>
+                    </bean>
+                </entry>-->
+                <entry key="java.util.Date"
+                       value ="com.bigDragon.springIOC.propertyEdtor2.PropertyDateEditor"  >
+                </entry>
+            </map>
+        </property>
+    </bean>
+    <bean id="person" class="com.bigDragon.springIOC.propertyEdtor2.Person">
+        <property name="id" value="1003" />
+        <property name="name" value="东北大亨" />
+        <property name="education" value="中国,北京海淀区清华大学" />
+        <property name="dataValue" value="2018/12/30" />
+    </bean>
+</beans>

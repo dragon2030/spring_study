@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+    <bean id="customer" class="com.bigDragon.springIOC.propertyEditor.Customer">
+        <property name="name" value="Jack" />
+        <property name="address" value="浙江-杭州-西湖" />
+    </bean>
+    <bean id="customEditorConfigurer" class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+        <property name="customEditors">
+            <map>
+                <!-- 引用类的属性类型 -->
+                <entry key="com.bigDragon.springIOC.propertyEditor.Address"
+                       value ="com.bigDragon.springIOC.propertyEditor.AddressPropertyEditor"  />
+<!--                <entry key="com.bigDragon.springIOC.propertyEditor.Address">
+                    &lt;!&ndash;对应Address的编辑器 &ndash;&gt;
+                    <bean class="com.bigDragon.springIOC.propertyEditor.AddressPropertyEditor" />
+                </entry>-->
+            </map>
+        </property>
+    </bean>
+</beans>

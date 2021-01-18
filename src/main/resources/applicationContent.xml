@@ -57,7 +57,7 @@
     </bean>
 
     <!-- controller -->
-<!--   <bean name="/AbstractControllerTest" class="com.bigDragon.controller.springMVC.AbstractControllerTest">
+<!--   <bean name="/AbstractControllerTest" class="AbstractControllerTest">
         <property name="user1" ref="user1">
         </property>
     </bean>-->

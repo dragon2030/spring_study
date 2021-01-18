@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+        "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+    <!--经典的基于代理的AOP-->
+    <!--目标对象-->
+    <bean id="human" class="com.bigDragon.springAOP.classicAopDemo.Human">
+    </bean>
+
+    <!--创建通知-->
+    <bean id="sleepHelper" class="com.bigDragon.springAOP.classicAopDemo.SleepHelper">
+    </bean>
+
+    <!--配置切点-->
+    <bean id="sleepPointcut" class="org.springframework.aop.support.JdkRegexpMethodPointcut">
+        <property name="pattern" value=".*sleep"/>
+    </bean>
+
+    <!--切入点通知者——切入点配置器:org.springframework.aop.support.DefaultPointcutAdvisor-->
+    <bean id="sleepHelperAdvisor" class="org.springframework.aop.support.DefaultPointcutAdvisor">
+        <property name="advice" ref="sleepHelper"/>
+        <property name="pointcut" ref="sleepPointcut"/>
+    </bean>
+
+    <!--调用ProxyFactoryBean产生代理对象-->
+    <bean id="humanProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target" ref="human"/>
+        <property name="interceptorNames" value="sleepHelperAdvisor" />
+        <property name="proxyInterfaces" value="com.bigDragon.springAOP.classicAopDemo.Sleepable" />
+    </bean>
+
+    <!--方法二：Spring提供了一种自动代理的功能-->
+<!--    <bean id="sleepAdvisor" class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+        <property name="advice" ref="sleepHelper"/>
+        <property name="pattern" value=".*sleep"/>
+    </bean>
+    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"/>-->
+
+</beans>
