@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
+
+    <bean id="sleep" class="com.bigDragon.springAOP.pojoAspect.SleepDaoImpl"/>
+    <bean id="sleepAspect" class="com.bigDragon.springAOP.pojoAspect.SleepAspect"/>
+    <!--proxy-target-class="true" 表示使用cglib代理-->
+    <!--配置AOP-->
+    <aop:config>
+    <!--切面-->
+        <aop:aspect id="aspect" ref="sleepAspect">
+        <!--切入点的配置-->
+            <aop:pointcut id="pointcut" expression="execution(* com.bigDragon.springAOP.pojoAspect.*.sleep(..))"/>
+            <aop:before method="before" pointcut-ref="pointcut"/>
+            <aop:after-throwing method="afterThrowing" throwing="ex" pointcut-ref="pointcut"/>
+            <aop:around method="around" pointcut-ref="pointcut"/>
+            <aop:after-returning method="afterReturning" pointcut-ref="pointcut"/>
+        </aop:aspect>
+    </aop:config>
+
+</beans>
