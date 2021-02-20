@@ -9,7 +9,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Test {
     public static void main(String[] args) {
         String xm=null;
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("pojoAspect.xml");
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("springAopTestXml/pojoAspect.xml");
         SleepDao sleep = (SleepDao) context.getBean("sleep");
         try {
             xm = sleep.sleep("xm");

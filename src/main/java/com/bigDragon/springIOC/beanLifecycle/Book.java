@@ -1,3 +1,4 @@
+/*
 package com.bigDragon.springIOC.beanLifecycle;
 
 import org.springframework.beans.BeansException;
@@ -12,12 +13,14 @@ import org.springframework.context.ApplicationContextAware;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
+*/
 /**
  * 首先是一个简单的Spring Bean，调用Bean自身的方法和Bean级生命周期接口方法，为了方便演示，它实现了BeanNameAware、
  * BeanFactoryAware、InitializingBean和DiposableBean这4个接口，同时有2个方法，对应配置文件中<bean>的init-method和destroy-method
  * @author bigDragon
  * @create 2021-01-12 15:35
- */
+ *//*
+
 public class Book implements BeanNameAware,BeanFactoryAware,
         ApplicationContextAware,InitializingBean,DisposableBean {
 
@@ -81,4 +84,4 @@ public class Book implements BeanNameAware,BeanFactoryAware,
     protected void finalize() throws Throwable {
         System.out.println("------inside finalize-----");
     }
-}
+}*/

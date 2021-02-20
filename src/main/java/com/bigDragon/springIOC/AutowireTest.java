@@ -36,7 +36,7 @@ public class AutowireTest {
      *      注：如果配置文件中定义了与需要自动装配的JavaBean的名称相同而类型不同的JavaBean，那么它会错误地注入不同类型的JavaBean
      */
     public void autowireByName(){
-        Resource resource =  new ClassPathResource("applicationContent.xml");   //装载配置文件
+        Resource resource =  new ClassPathResource("config/applicationContent.xml");   //装载配置文件
         BeanFactory factory = new XmlBeanFactory(resource);
         PrintInfo printInfo = (PrintInfo)factory.getBean("printInfo");  //获取bean
         System.out.println(printInfo);
@@ -50,7 +50,7 @@ public class AutowireTest {
      *      混合使用手动装配来指定装配哪个JavaBean
      */
     public void autowireByType(){
-        Resource resource =  new ClassPathResource("applicationContent.xml");   //装载配置文件
+        Resource resource =  new ClassPathResource("config/applicationContent.xml");   //装载配置文件
         BeanFactory factory = new XmlBeanFactory(resource);
         PrintInfo2 printInfo2 = (PrintInfo2)factory.getBean("printInfo2");  //获取bean
         System.out.println(printInfo2);

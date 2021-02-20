@@ -47,7 +47,7 @@ public class SpringBean {
     }
 
     public static void main(String[] args){
-        ApplicationContext context1 = new ClassPathXmlApplicationContext("applicationContent.xml");
+        ApplicationContext context1 = new ClassPathXmlApplicationContext("config/applicationContent.xml");
         User1 user1_test1 = (User1)context1.getBean("user1");
         System.out.println(System.identityHashCode(user1_test1));       //439928219
         User1 user1_test2 = (User1)context1.getBean("user1");

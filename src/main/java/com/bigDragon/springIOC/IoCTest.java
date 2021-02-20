@@ -54,7 +54,7 @@ public class IoCTest {
      * spring IoC 依赖注入方式一：setter注入
      */
     public void setterInjection(){
-        Resource resource = new ClassPathResource("applicationContent.xml");
+        Resource resource = new ClassPathResource("config/applicationContent.xml");
         BeanFactory beanFactory = new XmlBeanFactory(resource);
         User1 user1 = (User1) beanFactory.getBean("user1");
         System.out.println(user1.toString());
@@ -64,7 +64,7 @@ public class IoCTest {
      * spring IoC 依赖注入方式二：构造器注入
      */
     public void constructorInjection(){
-        Resource resource = new ClassPathResource("applicationContent.xml");
+        Resource resource = new ClassPathResource("config/applicationContent.xml");
         BeanFactory beanFactory = new XmlBeanFactory(resource);
         User2 user2 = (User2) beanFactory.getBean("user2");
         System.out.println(user2.toString());
@@ -74,7 +74,7 @@ public class IoCTest {
      * 引入其他的bean
      */
     public void otherBeanInjection(){
-        Resource resource = new ClassPathResource("applicationContent.xml");
+        Resource resource = new ClassPathResource("config/applicationContent.xml");
         BeanFactory beanFactory = new XmlBeanFactory(resource);
         User3 user3 = (User3) beanFactory.getBean("user3");
         System.out.println(user3.toString());

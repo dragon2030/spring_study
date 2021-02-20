@@ -26,7 +26,7 @@ public class ApplicationContextTest {
         applicationContextTest.test();
     }
     public void test(){
-        String configLocation1 = "applicationContent.xml";
+        String configLocation1 = "config/applicationContent.xml";
         String configLocation2 = "C:\\Users\\3759\\IdeaProjects\\spring_study\\src\\main\\resources\\applicationContent.xml";
         //ClassPathXmlApplicationContext类
         //从当前类路径中检索配置文件并装载它来创建容器的实例

@@ -11,7 +11,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Test {
 
     public static void main(String[] args){
-        ApplicationContext appCtx = new ClassPathXmlApplicationContext("classicAopDemo.xml");
+        ApplicationContext appCtx = new ClassPathXmlApplicationContext("springAopTestXml/classicAopDemo.xml");
 /*        SleepDao sleeper = (SleepDao)appCtx.getBean("humanProxy");*/
         //方法二：
         Sleepable sleeper = (Sleepable)appCtx.getBean("human");

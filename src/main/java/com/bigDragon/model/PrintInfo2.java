@@ -19,7 +19,7 @@ public class PrintInfo2 {
     @Override
     public String toString() {
         return "PrintInfo2{" +
-                "user=" + user +
+                "User=" + user +
                 '}';
     }
 }

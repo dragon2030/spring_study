@@ -9,7 +9,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class Test {
     public static void main(String[] args){
-        ApplicationContext appCtx = new ClassPathXmlApplicationContext("aspectjDemo.xml");
+        ApplicationContext appCtx = new ClassPathXmlApplicationContext("springAopTestXml/aspectjDemo.xml");
         Sleepable human = (Sleepable)appCtx.getBean("human");
         //human.sleep("12345");
         //产生异常测试

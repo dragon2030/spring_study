@@ -1,14 +1,17 @@
+/*
 package com.bigDragon.springIOC.beanLifecycle;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 
+*/
 /**
  * BeanPostProcessor接口包括2个方法postProcessAfterInitialization和postProcessBeforeInitialization，这两个方法的第一个参数
  * 都是要处理的Bean对象，第二个参数都是Bean的name。返回值也都是要处理的Bean对象
  * @author bigDragon
  * @create 2021-01-12 15:51
- */
+ *//*
+
 public class MyBeanPostProcessor implements BeanPostProcessor {
     public MyBeanPostProcessor() {
         super();
@@ -31,3 +34,4 @@ public class MyBeanPostProcessor implements BeanPostProcessor {
         return bean;
     }
 }
+*/

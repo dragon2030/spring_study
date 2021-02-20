@@ -23,7 +23,7 @@ public class testPropertyEditot  {
         // BeanFactory factory=new XmlBeanFactory(new
         // ClassPathResource("beans.xml"));
 
-        ApplicationContext ctx = new ClassPathXmlApplicationContext("propertyEditor2.xml");
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("springIocTestXml/propertyEditor2.xml");
         Person person = (Person) ctx.getBean("person");
 
         System.out.println("学生ID：" + person.getId());

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bigDragon.demo.dao.userDao">
+
+    <select id="findById" resultType="com.bigDragon.demo.model.User" parameterType="integer">
+        select * from user u
+        where u.user_id=#{userId}
+    </select>
+</mapper>

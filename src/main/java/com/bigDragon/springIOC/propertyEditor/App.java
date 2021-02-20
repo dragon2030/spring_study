@@ -12,7 +12,7 @@ public class App
 {
     public static void main(String[] args)
     {
-        ApplicationContext ctx = new ClassPathXmlApplicationContext("propertyEditor.xml");
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("springIocTestXml/propertyEditor.xml");
         Customer c = ctx.getBean("customer", Customer.class);
 
         //输出

@@ -12,6 +12,31 @@
         <param-value>jdbc:mysql://localhost:3306/dragon</param-value>
     </context-param>
 
+    <!-- 指定业务层Spring容器的配置文件，多个用逗号隔开 -->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:/config/applicationContext.xml</param-value>
+    </context-param>
+    <!-- 通过contextConfigLocation指定的配置文件启动业务层的Spring容器 -->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
+    <!-- 加载Log4J 配置文件  -->
+    <context-param>
+        <param-name>log4jConfigLocation</param-name>
+        <param-value>classpath:log4j.properties</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>log4jRefreshInterval</param-name>
+        <param-value>3000</param-value>
+    </context-param>
+
+    <listener>
+        <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+    </listener>
+
     <!-- 设置自动加载的配置文件 -->
     <servlet>
         <servlet-name>dispatcherServlet</servlet-name>
@@ -19,7 +44,7 @@
         <init-param>
             <param-name>contextConfigLocation</param-name>
             <!--classpath:只会到你class路径中查找文件 classpath*：不仅包含class路径，还包括jar文件中（class路径）进行查找-->
-            <param-value>classpath:applicationContent.xml</param-value>
+            <param-value>classpath:config/spring-mvc.xml</param-value>
         </init-param>
         <!--load-on-startup元素标记容器是否在启动的时候就加载这个servlet(实例化并调用其init()方法)。这时servlet不用初始化，而是交给容器去处理。-->
         <load-on-startup>1</load-on-startup>
@@ -28,6 +53,26 @@
         <servlet-name>dispatcherServlet</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
+
+    <!--CharacterEncodingFilter是spring内置过滤器，用来指定请求或者响应的编码格式-->
+    <filter>
+        <filter-name>characterEncodingFilter</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <!--encoding用来指定编码格式-->
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+        <!--forceEncoding表示是否强制response的编码格式也是encoding格式-->
+        <init-param>
+            <param-name>forceEncoding</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>characterEncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 
     <!--Servlet样例-->
 <!--    <servlet>

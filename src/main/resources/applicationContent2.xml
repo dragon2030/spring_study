@@ -36,7 +36,7 @@
         </property>
     </bean>
 
-    <!-- controller -->
+    <!-- demo -->
 <!--   <bean name="/AbstractControllerTest" class="AbstractControllerTest">
         <property name="user1" ref="user1">
         </property>

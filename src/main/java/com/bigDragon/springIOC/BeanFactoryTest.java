@@ -34,7 +34,7 @@ public class BeanFactoryTest {
      */
     public void test(){
         //ClassPathResource读取XML文件并传参给XmlBeanFactory
-        Resource resource = new ClassPathResource("applicationContent.xml");
+        Resource resource = new ClassPathResource("config/applicationContent.xml");
         BeanFactory factory = new XmlBeanFactory(resource);
         //在<beans>标签中通过<bean>标签定义JavaBean的名称和类型，在程序代码中利用BeanFactory的getBean()
         //  方法获取JavaBean的实例并且向上转为需要的接口类型，这样在容器中就开始了这个JavaBean的生命周期

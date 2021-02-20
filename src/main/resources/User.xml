@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+        version="2.0">
+
+    <entity class="com.bigDragon.hibernateTest.model.User">
+        <table name="user" schema="dragon" catalog=""/>
+        <attributes>
+            <id name="userId">
+                <column name="user_id"/>
+            </id>
+            <basic name="name">
+                <column name="name"/>
+            </basic>
+            <basic name="age">
+                <column name="age"/>
+            </basic>
+            <basic name="peopleDes">
+                <column name="people_des"/>
+            </basic>
+            <basic name="sexId">
+                <column name="sex_id"/>
+            </basic>
+            <basic name="createTime">
+                <column name="create_time"/>
+            </basic>
+        </attributes>
+    </entity>
+</entity-mappings>

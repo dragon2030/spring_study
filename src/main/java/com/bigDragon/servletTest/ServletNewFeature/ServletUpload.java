@@ -31,8 +31,8 @@ import java.util.Date;
  * @author bigDragon
  * @create 2020-09-30 16:26
  */
-@WebServlet("/ServletUpload")
-@MultipartConfig(location = "d:/tmp")
+//@WebServlet("/ServletUpload")
+//@MultipartConfig(location = "d:/tmp")
 public class ServletUpload extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
